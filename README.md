@@ -130,7 +130,7 @@ Events
 
 
 # req
-`function (req) {}`  
+`function handler(req) {}`  
 Hook the `req` event to be notified prior to all requests.  
 Event handlers get passed the `puredom.HttpRequest` instance `req`.  
 
@@ -142,7 +142,7 @@ users.on('req', function(req) {
 
 
 # req:/url
-`function (req) {}`  
+`function handler(req) {}`  
 Add an event handler for "req:" followed by relative URL (ex: `req:/users`) to be notified when a request is made to the given URL.  
 This is just a more specific version of the `req` event.  
 
@@ -154,7 +154,7 @@ users.on('req:/users', function(req) {
 
 
 # status
-`function (req, res) {}`  
+`function handler(req, res) {}`  
 Hook the `status` event to be notified of the status of every response.  
 Event handlers get passed the `puredom.HttpRequest` instance (`req`), and the response object (`res`).  
 
@@ -166,7 +166,7 @@ users.on('status', function(req, res) {
 
 
 # status:N
-`function (req, res) {}`  
+`function handler(req, res) {}`  
 Add an event handler for "status:" followed by a specific response status code (ex: `status:401`) to be notified when a response is issued with that status.  
 This is just a more specific version of the `status` event.  
 
@@ -178,7 +178,7 @@ users.on('status', function(req, res) {
 
 
 # res
-`function (req, res) {}`  
+`function handler(req, res) {}`  
 Hook the `res` event to be notified of all responses.  
 Event handlers get passed the `puredom.HttpRequest` instance (`req`), and the response object (`res`).  
 
@@ -190,7 +190,7 @@ users.on('res', function(req, res) {
 
 
 # res:/url
-`function (req, res) {}`  
+`function handler(req, res) {}`  
 Add an event handler for "res:" followed by relative URL (ex: `res:/users`) to be notified when a response is received from the given URL.  
 This is just a more specific version of the `res` event.  
 
