@@ -97,7 +97,7 @@
 			}
 
 			relativeUrl = url;
-			url = '/' + this.url.replace(/(?:^\/+|(\/)\/+|\/+$)/g, '$1') + url;
+			url = this.url.replace(/(?:^([a-z]+\:\/\/)|(\/)\/+|\/+$)/g, '$1$2') + url;
 			
 			if (method==='POST') {
 				body = $.querystring.stringify(body);
