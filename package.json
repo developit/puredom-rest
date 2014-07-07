@@ -1,9 +1,34 @@
 {
-  "name": "puredom.rest",
-  "version": "0.1.0",
+  "name": "puredom-rest",
+  "version": "1.0.0",
+  "homepage": "https://github.com/developit/puredom-rest",
+  "author": "Jason Miller <jason@developit.ca>",
+  "description": "Work with RESTful APIs easily.",
+  "main": "puredom-model.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "keywords": [
+    "puredom",
+    "model",
+    "rest",
+    "mvc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/developit/puredom-rest.git"
+  },
+  "licence": "BSD 3-Clause",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-uglify": "~0.2.7"
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "~0.5.0",
+    "load-grunt-tasks": "^0.6.0",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-mocha": "^0.4.11",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "dependencies": {
+    "puredom": "^1.3.1"
   }
 }
