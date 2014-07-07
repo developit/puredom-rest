@@ -1,7 +1,10 @@
-puredom.rest
+puredom-rest
 ============
 
-Work with RESTful APIs easily.
+A high-level network abstraction that makes working with REST APIs simple.
+
+If you prefer a server-synchronized resource model (`sync()` / `fetch()` paradigm), check out [puredom-model](http://github.com/developit/puredom-model).
+
 
 ---
 
@@ -12,7 +15,7 @@ Instantiation
 **Using AMD:**  
 
 ```JavaScript
-require('puredom.rest', function(rest) {
+require('puredom-rest', function(rest) {
 	var users = rest('/api/users');
 	
 	// users is a rest.Resource instance:
@@ -23,7 +26,7 @@ require('puredom.rest', function(rest) {
 **Without AMD:**  
 
 ```HTML
-<script src="puredom.rest.js"></script>
+<script src="puredom-rest.js"></script>
 <script>
 	var users = rest('/api/users');
 	
