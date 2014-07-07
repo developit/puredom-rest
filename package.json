@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "homepage": "https://github.com/developit/puredom-rest",
   "author": "Jason Miller <jason@developit.ca>",
-  "description": "Work with RESTful APIs easily.",
+  "description": "A high-level network abstraction that makes working with REST APIs simple.",
   "main": "puredom-model.js",
   "scripts": {
     "test": "grunt"

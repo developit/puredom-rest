@@ -1,0 +1,30 @@
+{
+  "name": "puredom-rest",
+  "main": "puredom-rest.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/developit/puredom-rest",
+  "authors": [
+    "Jason Miller <jason@developit.ca>"
+  ],
+  "description": "A high-level network abstraction that makes working with REST APIs simple.",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "puredom",
+    "model",
+    "rest",
+    "mvc",
+    "network"
+  ],
+  "license": "BSD 3-Clause",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
