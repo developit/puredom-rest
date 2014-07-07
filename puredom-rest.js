@@ -157,7 +157,7 @@
 				if (this.request.responseType==='json') {
 					res.json = this.request.response;
 				}
-				else if (res.data.match(/^(\{[\s\S]+\}|\[[\s\S]+\]|\"[\s\S]+\")$/)) {
+				else if (res.data.match(/^(\{[\s\S]*\}|\[[\s\S]*\]|\"[\s\S]*\")$/)) {
 					res.json = $.json.parse(res.data);
 				}
 
