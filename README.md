@@ -1,4 +1,4 @@
-puredom-rest
+puredom-rest [![Version](https://img.shields.io/npm/v/puredom-rest.svg?style=flat)](https://www.npmjs.org/package/puredom-rest) ⎔ [![Build Status](https://img.shields.io/travis/developit/puredom-rest.svg?style=flat&branch=master)](https://travis-ci.org/developit/puredom-rest)
 ============
 
 A high-level network abstraction that makes working with REST APIs simple.
@@ -17,7 +17,7 @@ Instantiation
 ```JavaScript
 require('puredom-rest', function(rest) {
 	var users = rest('/api/users');
-	
+
 	// users is a rest.Resource instance:
 	alert(users instanceof rest.Resource);
 });
@@ -29,7 +29,7 @@ require('puredom-rest', function(rest) {
 <script src="puredom-rest.js"></script>
 <script>
 	var users = rest('/api/users');
-	
+
 	// users is a rest.Resource instance:
 	alert(users instanceof rest.Resource);
 </script>
@@ -202,5 +202,3 @@ users.on('res:/users', function(req, res) {
 	console.log('User list response: ', res.headers, res.json);
 });
 ```
-
-
