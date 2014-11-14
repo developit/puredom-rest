@@ -1,12 +1,15 @@
 /** A synchronized model base class. */
-(function(factory) {
-	if (typeof window.define==='function' && window.define.amd) {
-		window.define(['puredom'], factory);
+(function(root, factory) {
+	if (typeof define==='function' && define.amd) {
+		define(['puredom'], factory);
+	}
+	else if (typeof module==='object' && module.exports) {
+		module.exports = factory(require('puredom'));
 	}
 	else {
-		factory(window.puredom);
+		window.puredom.rest = factory(window.puredom);
 	}
-}(function($) {
+}(this, function($) {
 	/** @exports rest as puredom.rest */
 
 	/**	Create a new rest Resource, representing one resource type exposed by a RESTful API.
