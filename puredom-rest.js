@@ -30,6 +30,7 @@
 
 		this.url = url || this.url;
 		this.query = $.extend({}, this.query);
+		this.headers = $.extend({}, this.headers);
 	};
 
 	$.inherits(rest.Resource, $.EventEmitter);
