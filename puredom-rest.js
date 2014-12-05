@@ -40,7 +40,12 @@
 
 		query : {},
 
-		/**	Get or set the value of a named parameter to send with each request. */
+		headers : {},
+
+		/**	Get or set global parameters, sent with each request.
+		 *	@param {String} key
+		 *	@param {String} value
+		 */
 		param : function(key, value) {
 			if (typeof key==='string') {
 				if (arguments.length===1) return this.query[key];
@@ -52,29 +57,47 @@
 			return this;
 		},
 
-		index : function(callback) {
-			return this._call('GET /', null, callback);
+		/**	Get or set global headers, sent with each request.
+		 *	@param {String} header
+		 *	@param {String} value
+		 */
+		header : function(header, value) {
+			var i;
+			if (typeof header==='string') {
+				if (arguments.length===1) return this.headers[key];
+				this.headers[header.toLowerCase()] = value;
+			}
+			if (typeof header==='object') {
+				for (i in header) if (header.hasOwnProperty(i)) {
+					this.header(i, header[i]);
+				}
+			}
+			return this;
 		},
 
-		get : function(id, callback) {
-			return this._call('GET /' + id, null, callback);
+		index : function(callback, options) {
+			return this._call('GET /', null, callback, options);
 		},
 
-		post : function(obj, callback) {
-			return this._call('POST /', obj, callback);
+		get : function(id, callback, options) {
+			return this._call('GET /' + id, null, callback, options);
 		},
 
-		put : function(id, obj, callback) {
+		post : function(obj, callback, options) {
+			return this._call('POST /', obj, callback, options);
+		},
+
+		put : function(id, obj, callback, options) {
 			if (id && typeof id==='object' && typeof obj==='function') {
 				callback = obj;
 				obj = id;
 				id = obj[this.idKey];
 			}
-			return this._call('PUT /' + id, obj, callback);
+			return this._call('PUT /' + id, obj, callback, options);
 		},
 
-		del : function(id, callback) {
-			return this._call('DELETE /' + id, null, callback);
+		del : function(id, callback, options) {
+			return this._call('DELETE /' + id, null, callback, options);
 		},
 
 		/** Used to grab the identifier if you pass an object directly to put() */
@@ -95,14 +118,16 @@
 		_call : function(url, body, callback, options) {
 			var self = this,
 				method = 'GET',
-				headers = {},
+				headers = $.extend({}, this.headers),
 				query = $.extend({}, this.query),
 				parts = url.split(' '),
 				path, relativeUrl, querystring;
 			options = options || {};
 
 			if (options.headers) {
-				$.extend(headers, options.headers);
+				$.forEach(options.headers, function(value, key) {
+					headers[key.toLowerCase()] = value;
+				});
 			}
 			if (options.query) {
 				$.extend(query, options.query);
