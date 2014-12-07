@@ -138,7 +138,7 @@
 				method = parts.splice(0, 1)[0];
 			}
 			url = parts.join(' ');
-			url = '/' + url.replace(/(^\/+|\/+$)/g, '');
+			url = ('/' + url.replace(/(^\/+|\/+$)/g, '')).replace(/\/+$/g,'');
 			path = url;
 
 			querystring = $.querystring.stringify(query);
