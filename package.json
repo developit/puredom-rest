@@ -1,6 +1,6 @@
 {
   "name": "puredom-rest",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/developit/puredom-rest",
   "author": "Jason Miller <jason@developit.ca>",
   "description": "A high-level network abstraction that makes working with REST APIs simple.",
