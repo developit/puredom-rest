@@ -178,6 +178,7 @@
 					responseHeaders = this.request.getAllResponseHeaders(),
 					reg = /^([a-z\-]+)\s*\:/gim,
 					msgProp = self.errorMessageProp || self.messageProp,
+					isError = !res.status || res.status>=400,
 					token, evts, i, r;
 				reg.lastIndex = 0;
 				while ( (token=reg.exec(responseHeaders)) ) {
@@ -190,8 +191,8 @@
 					res.json = $.json.parse(res.data);
 				}
 
-				res.error = res.status>=400 ? (res.json || res.data || 'Error '+res.status) : null;
-				res.response = res.status<400 ? res.json || res.data : null;
+				res.error = isError ? (res.json || res.data || 'Error '+res.status) : null;
+				res.response = !isError ? res.json || res.data : null;
 				r = res.error ? 'error' : 'success';
 				if (res.error && msgProp) {
 					res.error = $.delve(res.error, msgProp, false, true) || res.error;
