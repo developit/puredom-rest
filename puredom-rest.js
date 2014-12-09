@@ -176,7 +176,7 @@
 			$.net.request(req, function() {
 				var res = {
 						status : this.status,
-						data : this.responseText + '',
+						data : this.response,
 						headers : {}
 					},
 					responseHeaders = this.request.getAllResponseHeaders(),
@@ -191,8 +191,11 @@
 				if (this.request.responseType==='json') {
 					res.json = this.request.response;
 				}
-				else if (res.data.match(/^(?:\s|\n)*(\{[\s\S]*\}|\[[\s\S]*\]|\"[\s\S]*\")(?:\s|\n)*$/)) {
+				else if (typeof res.data==='string' && res.data.match(/^(?:\s|\n)*(\{[\s\S]*\}|\[[\s\S]*\]|\"[\s\S]*\")(?:\s|\n)*$/)) {
 					res.json = $.json.parse(res.data);
+				}
+				else if (this.request.responseType) {
+					res[this.request.responseType] = this.request.response;
 				}
 
 				res.error = isError ? (res.json || res.data || 'Error '+res.status) : null;
