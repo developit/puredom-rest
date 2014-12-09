@@ -162,6 +162,10 @@
 				rawBody : body
 			};
 
+			if (options.responseType) {
+				req.responseType = options.responseType;
+			}
+
 			if (typeof this.serializeBody==='function') {
 				req.body = this.serializeBody(body, req) || req.body;
 			}
