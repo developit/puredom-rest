@@ -166,7 +166,7 @@
 				req.responseType = options.responseType;
 			}
 
-			if (typeof this.serializeBody==='function') {
+			if (typeof this.serializeBody==='function' && options.serialize!==false) {
 				req.body = this.serializeBody(body, req) || req.body;
 			}
 
