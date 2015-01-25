@@ -167,7 +167,7 @@
 			}
 
 			if (typeof this.serializeBody==='function' && options.serialize!==false) {
-				req.body = this.serializeBody(body, req) || req.body;
+				req.bodySerialized = req.body = this.serializeBody(body, req) || req.body;
 			}
 
 			this.fireEvent('req', req);
