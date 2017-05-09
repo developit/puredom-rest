@@ -1,6 +1,8 @@
 puredom-rest [![Version](https://img.shields.io/npm/v/puredom-rest.svg?style=flat)](https://www.npmjs.org/package/puredom-rest) ⎔ [![Build Status](https://img.shields.io/travis/developit/puredom-rest.svg?style=flat&branch=master)](https://travis-ci.org/developit/puredom-rest)
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/developit/puredom-rest.svg)](https://greenkeeper.io/)
+
 A high-level network abstraction that makes working with REST APIs simple.
 
 If you prefer a server-synchronized resource model (`sync()` / `fetch()` paradigm), check out [puredom-model](http://github.com/developit/puredom-model).
